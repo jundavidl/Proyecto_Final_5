@@ -11,12 +11,12 @@
 //Vamos a definir las clasificaciones de las notas al margen, esto servira para hacer una barrida mas rapida de información
 //Estos tipos son:
 //UTILIDADES
-//DEFINICIÓN
-//DECLARACIÓN
+//DEFINICION
+//DECLARACION
 //COMPARADOR
-//FUNCIÓN
-//PRESENTACIÓN
-//VALIDACIÓN
+//FUNCION
+//PRESENTACION
+//VALIDACION
 
 #include <iostream>
 #include <fstream> //Libreria que controla la creacion, lectura y escritura de datos en archivos
@@ -104,13 +104,13 @@ void exportarReporte(const vector<Gasto>& gastos);
 
 int main() {
     setlocale(LC_ALL, "es_ES.UTF-8"); 
-    SetConsoleOutputCP(65001); //PRESENTACIÓN: Lineas de <windows.h>, necesarias para los simbolos UNICODE
+    SetConsoleOutputCP(65001); //PRESENTACION: Lineas de <windows.h>, necesarias para los simbolos UNICODE
     SetConsoleCP(65001);
 
-    vector<Gasto> gastos; //DEFINICIÓN: Definimos nombre con el que trabajaremos el vector + llamarlo "gastos"
+    vector<Gasto> gastos; //DEFINICION: Definimos nombre con el que trabajaremos el vector + llamarlo "gastos"
     int opcion = 0;
 
-    //cargarGastos(gastos); FUNCIÓN: Persistencia física de datos en disco (Se habilitará al definirla)
+    //cargarGastos(gastos); FUNCION: Persistencia fisica de datos en disco (Se habilitara al definirla)
     mostrarBanner();
     pausar();
 
@@ -153,7 +153,7 @@ int main() {
                         cout << "\n\n";
                         cout << AMARILLO << BOLD << "  Guardando y saliendo..." << RESET << "\n";
                         cout << AMARILLO << "  ¡Hasta pronto usuario, tenga un gran día!\n\n" << RESET;
-                        //guardarGastos(gastos); FUNCIÓN: Persistencia física de datos en disco (Se habilitará al definirla)
+                        //guardarGastos(gastos); FUNCION: Persistencia fisica de datos en disco (Se habilitara al definirla)
                         break;
         }
 
@@ -183,17 +183,17 @@ void mostrarBanner() {
 }
 
 int seleccionarOpcionMenu() {
-    int opcionSeleccionada = 1; // DEFINICIÓN: Se empieza apuntando a la opción 1
+    int opcionSeleccionada = 1; // DEFINICION: Se empieza apuntando a la opcion 1
     int tecla;
 
     while (true) {
         limpiarPantalla();
         mostrarMenu(opcionSeleccionada);
 
-        tecla = _getch(); // UTILIDADES: El programa se detiene esperando interacción
+        tecla = _getch(); // UTILIDADES: El programa se detiene esperando interaccion
 
-        if (tecla == 224 || tecla == 0 || tecla == -32) { // VALIDACIÓN: Detecta prefijos de las flechas del teclado
-            tecla = _getch(); // FUNCIÓN: Captura el código real de dirección
+        if (tecla == 224 || tecla == 0 || tecla == -32) { // VALIDACION: Detecta prefijos de las flechas del teclado
+            tecla = _getch(); // FUNCION: Captura el codigo real de direccion
             
             if (tecla == 72) { // COMPARADOR: Tecla flecha ARRIBA
                 opcionSeleccionada--;
@@ -204,7 +204,7 @@ int seleccionarOpcionMenu() {
                 if (opcionSeleccionada > 10) opcionSeleccionada = 0; 
             }
         } 
-        else if (tecla == 13) { // VALIDACIÓN: Código ASCII para la tecla ENTER
+        else if (tecla == 13) { // VALIDACION: Codigo ASCII para la tecla ENTER
             return opcionSeleccionada; 
         }
     }
@@ -289,7 +289,7 @@ void mostrarMenu(int seleccionada) {
 
 void limpiarPantalla() {
     #ifdef _WIN32
-        system("cls"); // FUNCIÓN: Código universal que limpia pantalla sin importa sistema operativo
+        system("cls"); // FUNCION: Codigo universal que limpia pantalla sin importa sistema operativo
     #else
         system("clear");
     #endif
@@ -297,11 +297,11 @@ void limpiarPantalla() {
 
 void pausar() {
     cout << AMARILLO << "\n  Presiona Enter para continuar..." << RESET;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // FUNCIÓN: Limpieza completa del bufer
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // FUNCION: Limpieza completa del bufer
     cin.get();
 }
 
-void imprimirTitulo(const string& titulo) { // FUNCIÓN: Funcion ULTRA practica que da formatos a los titulos definiendo un ancho
+void imprimirTitulo(const string& titulo) { // FUNCION: Funcion ULTRA practica que da formatos a los titulos definiendo un ancho
     limpiarPantalla();                      // y en base a ese ancho, ajustar el texto a la mitad, con sus respectivas margenes
     int ancho = 52;
     
@@ -329,17 +329,17 @@ void imprimirTitulo(const string& titulo) { // FUNCIÓN: Funcion ULTRA practica 
 bool validarFecha(const string& fecha) {
     stringstream ss(fecha); // UTILIDADES: Convierte el string en un flujo de datos
     int dia, mes, anio;
-    char barra1, barra2; // DEFINICIÓN: Contenedores basura para atrapar los '/'
+    char barra1, barra2; // DEFINICION: Contenedores basura para atrapar los '/'
 
-    if (!(ss >> dia >> barra1 >> mes >> barra2 >> anio)) return false; // VALIDACIÓN: Revisa que se puedan extraer los 3 números
+    if (!(ss >> dia >> barra1 >> mes >> barra2 >> anio)) return false; // VALIDACION: Revisa que se puedan extraer los 3 numeros
     
-    if (barra1 != '/' || barra2 != '/') return false; // VALIDACIÓN: Comprueba que los separadores sean barritas
+    if (barra1 != '/' || barra2 != '/') return false; // VALIDACION: Comprueba que los separadores sean barritas
 
     if (mes < 1 || mes > 12) return false;
     if (anio < 2000 || anio > 2100) return false;
 
     int diasMes[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    bool bisiesto = (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0); // VALIDACIÓN: Validaciones y comprobaciones varias
+    bool bisiesto = (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0); // VALIDACION: Validaciones y comprobaciones varias
     if (bisiesto) diasMes[2] = 29;
 
     return (dia >= 1 && dia <= diasMes[mes]);  
@@ -348,22 +348,22 @@ bool validarFecha(const string& fecha) {
 long fechaADias(const string& fecha) {
     stringstream ss(fecha);
     int dia, mes, anio;
-    char barra1, barra2; // DEFINICIÓN: Contenedores temporales para absorber los '/'
-    ss >> dia >> barra1 >> mes >> barra2 >> anio; // FUNCIÓN: Desarma el texto y reparte los números limpios
+    char barra1, barra2; // DEFINICION: Contenedores temporales para absorber los '/'
+    ss >> dia >> barra1 >> mes >> barra2 >> anio; // FUNCION: Desarma el texto y reparte los numeros limpios
     return (anio * 365) + (mes * 30) + dia;
 }
 
 bool fechaEnRango(const string& fecha, const string& inicio, const string& fin) {
-    long f  = fechaADias(fecha);  // FUNCIÓN: Convierte la fecha del gasto actual a número
-    long i  = fechaADias(inicio); // FUNCIÓN: Convierte la fecha límite de inicio a número
-    long fn = fechaADias(fin);    // FUNCIÓN: Convierte la fecha límite de fin a número
+    long f  = fechaADias(fecha);  // FUNCION: Convierte la fecha del gasto actual a numero
+    long i  = fechaADias(inicio); // FUNCION: Convierte la fecha limite de inicio a numero
+    long fn = fechaADias(fin);    // FUNCION: Convierte la fecha limite de fin a numero
     return (f >= i && f <= fn); 
 }
 
 int obtenerSemana(const string& fecha) {
     stringstream ss(fecha); // UTILIDADES: Convierte el texto de la fecha en flujo de datos
     int dia;
-    ss >> dia; // FUNCIÓN: Extrae únicamente el número del día al principio del texto
+    ss >> dia; // FUNCION: Extrae unicamente el numero del dia al principio del texto
 
     if (dia <= 7)  return 1;
     if (dia <= 14) return 2;
@@ -390,9 +390,9 @@ int leerEntero(const string& mensaje, int minimo, int maximo) {
     int valor;
     while (true) {
         cout << "  " << mensaje << " [" << minimo << "-" << maximo << "]: "; 
-        if (cin >> valor && valor >= minimo && valor <= maximo) { // VALIDACIÓN: Revisa que sea número y esté en el rango permitido
+        if (cin >> valor && valor >= minimo && valor <= maximo) { // VALIDACION: Revisa que sea numero y este en el rango permitido
             cin.ignore();
-            return valor; // FUNCIÓN: Retorna el número entero validado de forma exitosa
+            return valor; // FUNCION: Retorna el numero entero validado de forma exitosa
         }
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -415,7 +415,7 @@ void registrarGasto(vector<Gasto>& gastos) {
     imprimirTitulo("REGISTRAR NUEVO GASTO");
 
     Gasto g;
-    g.id = gastos.empty() ? 1 : gastos.back().id + 1; //COMPARADOR: "Auto-incrementa" el ID basándose en el último gasto
+    g.id = gastos.empty() ? 1 : gastos.back().id + 1; //COMPARADOR: "Auto-incrementa" el ID basandose en el ultimo gasto
 
     g.descripcion = leerLinea("Descripcion del gasto");
     if (g.descripcion.empty()) {
@@ -429,13 +429,13 @@ void registrarGasto(vector<Gasto>& gastos) {
     cout << "  5-Salud  6-Ocio  7-Ahorro  8-Otra\n";
     int categoriaOp = leerEntero("Categoria", 1, 8);
     string categorias[] = {"Hogar","Comida","Transporte","Educacion","Salud","Ocio","Ahorro","Otra"};
-    g.categoria = categorias[categoriaOp - 1]; // FUNCIÓN: Mapea el número del menú con el texto del arreglo
+    g.categoria = categorias[categoriaOp - 1]; // FUNCION: Mapea el número del menu con el texto del arreglo
 
     cout << "\n  Metodos de pago:\n";
     cout << "  1-Efectivo  2-Tarjeta  3-Transferencia  4-Otro\n";
     int metodoOp = leerEntero("Metodo de pago", 1, 4);
     string metodos[] = {"Efectivo","Tarjeta","Transferencia","Otro"};
-    g.metodoPago = metodos[metodoOp - 1]; // FUNCIÓN: Mapea el número elegido con el método de pago real
+    g.metodoPago = metodos[metodoOp - 1]; // FUNCION: Mapea el numero elegido con el metodo de pago real
 
     g.monto = leerMonto();
 
@@ -452,7 +452,7 @@ void registrarGasto(vector<Gasto>& gastos) {
     g.esencial = (esOpcional == 1); // COMPARADOR: Convierte el 1 o 0 ingresado a un valor booleano
 
     gastos.push_back(g); // UTILIDADES: Inserta el nuevo registro al final del vector
-    //guardarGastos(gastos); FUNCIÓN: Persistencia física de datos en disco (Se habilitará al definirla)
+    //guardarGastos(gastos); FUNCION: Persistencia fisica de datos en disco (Se habilitara al definirla)
 
     cout << VERDE << "\n  [OK] Gasto registrado exitosamente con ID #" << g.id << "\n" << RESET;
     pausar();
@@ -467,8 +467,8 @@ void verTodosLosGastos(const vector<Gasto>& gastos) {
         return;
     }
 
-    vector<Gasto> ordenados = gastos; // DEFINICIÓN: Duplica el vector para poder ordenar sin alterar el original
-    sort(ordenados.begin(), ordenados.end(), compararMontoDesc); // FUNCIÓN: Clasifica los registros de mayor a menor monto en la tabla
+    vector<Gasto> ordenados = gastos; // DEFINICION: Duplica el vector para poder ordenar sin alterar el original
+    sort(ordenados.begin(), ordenados.end(), compararMontoDesc); // FUNCION: Clasifica los registros de mayor a menor monto en la tabla
 
     cout << CIAN;
     cout << "  ┌────┬────────────────────────┬──────────────┬──────────────┬──────────┬────────────┬─────────┐\n";
@@ -484,13 +484,13 @@ void verTodosLosGastos(const vector<Gasto>& gastos) {
         cout << CIAN << "  │" << RESET;
         cout << setw(3) << g.id << " ";
         cout << CIAN << "│" << RESET;
-        cout << " " << left << setw(23) << g.descripcion.substr(0, 22); // UTILIDADES: Corta el texto si supera el ancho máximo de celda
+        cout << " " << left << setw(23) << g.descripcion.substr(0, 22); // UTILIDADES: Corta el texto si supera el ancho maximo de celda
         cout << CIAN << "│" << RESET;
-        cout << " " << left << setw(13) << g.categoria.substr(0, 12); // UTILIDADES: Asegura que la categoría encaje simétricamente
+        cout << " " << left << setw(13) << g.categoria.substr(0, 12); // UTILIDADES: Asegura que la categoria encaje simetricamente
         cout << CIAN << "│" << RESET;
-        cout << " " << left << setw(13) << g.metodoPago.substr(0, 12); // UTILIDADES: Recorta el texto del método de pago si es muy largo
+        cout << " " << left << setw(13) << g.metodoPago.substr(0, 12); // UTILIDADES: Recorta el texto del metodo de pago si es muy largo
         cout << CIAN << "│" << RESET;
-        cout << right << setw(9) << fixed << setprecision(2) << g.monto << " "; // PRESENTACIÓN: Formatea el decimal alineado a la derecha
+        cout << right << setw(9) << fixed << setprecision(2) << g.monto << " "; // PRESENTACION: Formatea el decimal alineado a la derecha
         cout << CIAN << "│" << RESET;
         cout << " " << g.fecha << " ";
         cout << CIAN << "│" << RESET;
@@ -503,7 +503,7 @@ void verTodosLosGastos(const vector<Gasto>& gastos) {
     cout << RESET;
 
     double total = 0;
-    for (int i = 0; i < (int)gastos.size(); i++) total += gastos[i].monto; // FUNCIÓN: Suma acumulativa de toda la columna de costos
+    for (int i = 0; i < (int)gastos.size(); i++) total += gastos[i].monto; // FUNCION: Suma acumulativa de toda la columna de costos
     cout << AMARILLO << BOLD << "  Total de " << gastos.size() << " gastos: $" << fixed << setprecision(2) << total << "\n" << RESET;
 
     pausar();
@@ -516,11 +516,11 @@ void buscarPorCategoria(const vector<Gasto>& gastos) {
     cout << "              5-Salud  6-Ocio  7-Ahorro  8-Otra\n";
     int categoriaOp = leerEntero("Selecciona categoria", 1, 8);
     string categorias[] = {"Hogar","Comida","Transporte","Educacion","Salud","Ocio","Ahorro","Otra"};
-    string catBuscar = categorias[categoriaOp - 1]; // FUNCIÓN: Traduce el número del menú al string correspondiente
+    string catBuscar = categorias[categoriaOp - 1]; // FUNCION: Traduce el numero del menu al string correspondiente
 
     vector<Gasto> resultado;
     for (int i = 0; i < (int)gastos.size(); i++) {
-        if (gastos[i].categoria == catBuscar) resultado.push_back(gastos[i]); // FUNCIÓN: Filtra y extrae las coincidencias al nuevo vector
+        if (gastos[i].categoria == catBuscar) resultado.push_back(gastos[i]); // FUNCION: Filtra y extrae las coincidencias al nuevo vector
     }
 
     if (resultado.empty()) {
@@ -529,7 +529,7 @@ void buscarPorCategoria(const vector<Gasto>& gastos) {
         return;
     }
 
-    sort(resultado.begin(), resultado.end(), compararMontoDesc); // FUNCIÓN: Clasifica los resultados filtrados de mayor a menor costo
+    sort(resultado.begin(), resultado.end(), compararMontoDesc); // FUNCION: Clasifica los resultados filtrados de mayor a menor costo
 
     cout << VERDE << "\n  Gastos en categoria: " << BOLD << catBuscar << RESET << "\n";
     cout << CIAN;
@@ -541,15 +541,15 @@ void buscarPorCategoria(const vector<Gasto>& gastos) {
     double subtotal = 0;
     for (int i = 0; i < (int)resultado.size(); i++) {
         const Gasto& g = resultado[i];
-        subtotal += g.monto; // FUNCIÓN: Acumula el dinero gastado únicamente en esta categoría
+        subtotal += g.monto; // FUNCION: Acumula el dinero gastado unicamente en esta categoria
         cout << CIAN << "  │" << RESET;
         cout << setw(3) << g.id << " ";
         cout << CIAN << "│" << RESET;
-        cout << " " << left << setw(23) << g.descripcion.substr(0, 22); // UTILIDADES: Corta la descripción para no deformar la celda
+        cout << " " << left << setw(23) << g.descripcion.substr(0, 22); // UTILIDADES: Corta la descripcion para no deformar la celda
         cout << CIAN << "│" << RESET;
         cout << " " << left << setw(13) << g.metodoPago.substr(0, 12);
         cout << CIAN << "│" << RESET;
-        cout << right << setw(13) << fixed << setprecision(2) << g.monto << " "; // PRESENTACIÓN: Formatea los costos alineados a la derecha
+        cout << right << setw(13) << fixed << setprecision(2) << g.monto << " "; // PRESENTACION: Formatea los costos alineados a la derecha
         cout << CIAN << "│" << RESET;
         cout << " " << g.fecha << " ";
         cout << CIAN << "│\n" << RESET;
@@ -623,9 +623,9 @@ void editarGasto(vector<Gasto>& gastos) {
 
     int id = leerEntero("Ingresa el ID del gasto a editar", 1, 99999);
 
-    Gasto* encontrado = NULL; // DEFINICIÓN: Inicializa un puntero vacío listo para almacenar una dirección
+    Gasto* encontrado = NULL; // DEFINICION: Inicializa un puntero vacio listo para almacenar una direccion
     for (int i = 0; i < (int)gastos.size(); i++) {
-        if (gastos[i].id == id) { encontrado = &gastos[i]; break; } // FUNCIÓN: Asigna la ubicación exacta en memoria del gasto hallado
+        if (gastos[i].id == id) { encontrado = &gastos[i]; break; } // FUNCION: Asigna la ubicación exacta en memoria del gasto hallado
     }
 
     if (!encontrado) {
@@ -635,7 +635,7 @@ void editarGasto(vector<Gasto>& gastos) {
     }
 
     cout << AMARILLO << "\n  Datos actuales del gasto #" << id << ":\n" << RESET;
-    cout << "  Descripcion : " << encontrado->descripcion << "\n"; // FUNCIÓN: El operador '->' lee los atributos directo desde la memoria original
+    cout << "  Descripcion : " << encontrado->descripcion << "\n"; // FUNCION: El operador '->' lee los atributos directo desde la memoria original
     cout << "  Categoria   : " << encontrado->categoria << "\n";
     cout << "  Metodo Pago : " << encontrado->metodoPago << "\n";
     cout << "  Monto       : $" << fixed << setprecision(2) << encontrado->monto << "\n";
@@ -658,14 +658,14 @@ void editarGasto(vector<Gasto>& gastos) {
             cout << "  5-Salud  6-Ocio  7-Ahorro  8-Otra\n";
             int nuevaCat = leerEntero("Nueva categoria", 1, 8);
             string cats[] = {"Hogar","Comida","Transporte","Educacion","Salud","Ocio","ahorro","Otra"};
-            encontrado->categoria = cats[nuevaCat - 1]; // FUNCIÓN: Sobreescribe el texto usando la posición relativa o que se supone deberia tener el arreglo
+            encontrado->categoria = cats[nuevaCat - 1]; // FUNCION: Sobreescribe el texto usando la posicion relativa o que se supone deberia tener el arreglo
             break;
         }
         case 3: {
             cout << "  1-Efectivo  2-Tarjeta  3-Transferencia  4-Otro\n";
             int m = leerEntero("Nuevo metodo", 1, 4);
             string mets[] = {"Efectivo","Tarjeta","Transferencia","Otro"};
-            encontrado->metodoPago = mets[m - 1]; // FUNCIÓN: Modifica el método de pago original apuntando al índice mapeado
+            encontrado->metodoPago = mets[m - 1]; // FUNCION: Modifica el metodo de pago original apuntando al indice mapeado
             break;
         }
         case 4:
@@ -681,12 +681,12 @@ void editarGasto(vector<Gasto>& gastos) {
         case 6: {
             cout << "  Es esencial? (1=Si / 0=No): ";
             int esOp; cin >> esOp; cin.ignore();
-            encontrado->esencial = (esOp == 1); // COMPARADOR: Evalúa la entrada entera y la transforma en bandera booleana
+            encontrado->esencial = (esOp == 1); // COMPARADOR: Evalua la entrada entera y la transforma en bandera booleana
             break;
         }
     }
 
-    //guardarGastos(gastos); FUNCIÓN: Persistencia física de datos en disco (Se habilitará al definirla)
+    //guardarGastos(gastos); FUNCION: Persistencia fisica de datos en disco (Se habilitara al definirla)
     cout << VERDE << "\n  [OK] Gasto #" << id << " actualizado correctamente.\n" << RESET;
     pausar();
 }
@@ -707,17 +707,17 @@ void eliminarGasto(vector<Gasto>& gastos) {
             cout << AMARILLO << "\n  Gasto a eliminar: " << gastos[i].descripcion
                  << " | $" << fixed << setprecision(2) << gastos[i].monto << "\n" << RESET;
 
-            int opcion = leerEntero("Confirmar eliminacion? (1=Si / 0=No)", 0, 1); // VALIDACIÓN: Filtra estrictamente que solo entre un 0 o un 1
+            int opcion = leerEntero("Confirmar eliminacion? (1=Si / 0=No)", 0, 1); // VALIDACION: Filtra estrictamente que solo entre un 0 o un 1
 
             if (opcion == 1) {
                 gastos.erase(gastos.begin() + i); // UTILIDADES: Borra el elemento del vector desplazando la memoria
-                //guardarGastos(gastos); FUNCIÓN: Persistencia física de datos en disco (Se habilitará al definirla)
+                //guardarGastos(gastos); FUNCION: Persistencia fisica de datos en disco (Se habilitara al definirla)
                 cout << VERDE << "  [OK] Gasto eliminado.\n" << RESET;
             } else {
                 cout << AMARILLO << "  Eliminacion cancelada.\n" << RESET;
             }
             pausar();
-            return; // FUNCIÓN: Termina el flujo de golpe al procesar con éxito el ID
+            return; // FUNCION: Termina el flujo de golpe al procesar con exito el ID
         }
     }
     cout << ROJO << "  No se encontro un gasto con ID #" << id << ".\n" << RESET;
