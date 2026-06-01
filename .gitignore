@@ -1,0 +1,8 @@
+# Configuración y entorno de VS Code
+.vscode/
+*.code-workspace
+
+# Archivos temporales o de compilación (opcional para C++)
+*.exe
+*.o
+*.out

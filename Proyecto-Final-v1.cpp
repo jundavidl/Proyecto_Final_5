@@ -124,14 +124,8 @@ int main() {
                 case 2:  verTodosLosGastos(gastos);    break;
                 case 3:  buscarPorCategoria(gastos);   break;
                 case 4:  buscarPorFecha(gastos);       break;
-                case 5: // verEstadisticas(gastos);
-                        cout << AMARILLO << "\n  [Aviso] Funcion de reporte aun no definida.\n" << RESET;
-                        pausar();
-                        break; 
-                case 6: // verGastoMasAlto(gastos);
-                        cout << AMARILLO << "\n  [Aviso] Funcion de reporte aun no definida.\n" << RESET;
-                        pausar();
-                        break; 
+                case 5:  verEstadisticas(gastos);      break;
+                case 6:  verGastoMasAlto(gastos);      break;
                 case 7: // editarGasto(gastos);
                         cout << AMARILLO << "\n  [Aviso] Funcion de reporte aun no definida.\n" << RESET;
                         pausar();
@@ -169,12 +163,12 @@ int main() {
 void mostrarBanner() {
     limpiarPantalla();
     cout << CIAN << BOLD;
-    cout << "  ╔══════════════════════════════════════════════════════╗\n";
-    cout << "  ║                                                      ║\n";
-    cout << "  ║         💰  GESTOR DE GASTOS MENSUALES  💰           ║\n";
-    cout << "  ║            Sistema Familiar de Finanzas              ║\n";
-    cout << "  ║                                                      ║\n";
-    cout << "  ╚══════════════════════════════════════════════════════╝\n";
+    cout << "  +------------------------------------------------------+\n";
+    cout << "  ¦                                                      ¦\n";
+    cout << "  ¦         ??  GESTOR DE GASTOS MENSUALES  ??           ¦\n";
+    cout << "  ¦            Sistema Familiar de Finanzas              ¦\n";
+    cout << "  ¦                                                      ¦\n";
+    cout << "  +------------------------------------------------------+\n";
     cout << RESET;
     cout << AMARILLO;
     cout << "\n  Bienvenido al sistema de seguimiento de gastos.\n";
@@ -212,79 +206,79 @@ int seleccionarOpcionMenu() {
 
 void mostrarMenu(int seleccionada) {
     cout << CIAN << BOLD;
-    cout << "\n  ╔══════════════════════════════════════════════╗\n"; 
-    cout << "  ║                MENU PRINCIPAL                ║\n"; 
-    cout << "  ╠══════════════════════════════════════════════╣\n"; 
+    cout << "\n  +----------------------------------------------+\n"; 
+    cout << "  ¦                MENU PRINCIPAL                ¦\n"; 
+    cout << "  ¦----------------------------------------------¦\n"; 
     cout << RESET;
 
     // OPCIÓN 1
-    cout << CIAN << "  ║ " << RESET;
+    cout << CIAN << "  ¦ " << RESET;
     if (seleccionada == 1) cout << BOLD << VERDE << " > 1.  Registrar gasto                       " << RESET;
     else                   cout << VERDE << "   1." << RESET << "  Registrar gasto                       ";
-    cout << CIAN << "║\n" << RESET;
+    cout << CIAN << "¦\n" << RESET;
 
     // OPCIÓN 2
-    cout << CIAN << "  ║ " << RESET;
+    cout << CIAN << "  ¦ " << RESET;
     if (seleccionada == 2) cout << BOLD << VERDE << " > 2.  Ver todos los gastos (tabla)          " << RESET;
     else                   cout << VERDE << "   2." << RESET << "  Ver todos los gastos (tabla)          ";
-    cout << CIAN << "║\n" << RESET;
+    cout << CIAN << "¦\n" << RESET;
 
     // OPCIÓN 3
-    cout << CIAN << "  ║ " << RESET;
+    cout << CIAN << "  ¦ " << RESET;
     if (seleccionada == 3) cout << BOLD << AZUL << " > 3.  Buscar por categoria                  " << RESET;
     else                   cout << AZUL << "   3." << RESET << "  Buscar por categoria                  ";
-    cout << CIAN << "║\n" << RESET;
+    cout << CIAN << "¦\n" << RESET;
 
     // OPCIÓN 4
-    cout << CIAN << "  ║ " << RESET;
+    cout << CIAN << "  ¦ " << RESET;
     if (seleccionada == 4) cout << BOLD << AZUL << " > 4.  Buscar por rango de fechas            " << RESET;
     else                   cout << AZUL << "   4." << RESET << "  Buscar por rango de fechas            ";
-    cout << CIAN << "║\n" << RESET;
+    cout << CIAN << "¦\n" << RESET;
 
     // OPCIÓN 5
-    cout << CIAN << "  ║ " << RESET;
+    cout << CIAN << "  ¦ " << RESET;
     if (seleccionada == 5) cout << BOLD << MAGENTA << " > 5.  Estadisticas y graficos ASCII         " << RESET;
     else                   cout << MAGENTA << "   5." << RESET << "  Estadisticas y graficos ASCII         ";
-    cout << CIAN << "║\n" << RESET;
+    cout << CIAN << "¦\n" << RESET;
 
     // OPCIÓN 6
-    cout << CIAN << "  ║ " << RESET;
+    cout << CIAN << "  ¦ " << RESET;
     if (seleccionada == 6) cout << BOLD << MAGENTA << " > 6.  Ver gasto mas alto del mes            " << RESET;
     else                   cout << MAGENTA << "   6." << RESET << "  Ver gasto mas alto del mes            ";
-    cout << CIAN << "║\n" << RESET;
+    cout << CIAN << "¦\n" << RESET;
 
     // OPCIÓN 7
-    cout << CIAN << "  ║ " << RESET;
+    cout << CIAN << "  ¦ " << RESET;
     if (seleccionada == 7) cout << BOLD << AMARILLO << " > 7.  Editar un gasto existente             " << RESET;
     else                   cout << AMARILLO << "   7." << RESET << "  Editar un gasto existente             ";
-    cout << CIAN << "║\n" << RESET;
+    cout << CIAN << "¦\n" << RESET;
 
     // OPCIÓN 8
-    cout << CIAN << "  ║ " << RESET;
+    cout << CIAN << "  ¦ " << RESET;
     if (seleccionada == 8) cout << BOLD << AMARILLO << " > 8.  Eliminar un gasto                     " << RESET;
-    else                   cout << AMARILLO << "   8." << RESET << "  Eliminar un gasto                     ";
-    cout << CIAN << "║\n" << RESET;
+    else                   cout << AMARILLO << "   8." << RESET << "  Eliminar un gasto existente             ";
+    cout << CIAN << "¦\n" << RESET;
 
     // OPCIÓN 9
-    cout << CIAN << "  ║ " << RESET;
+    cout << CIAN << "  ¦ " << RESET;
     if (seleccionada == 9) cout << BOLD << BLANCO << " > 9.  Exportar reporte mensual (.txt)       " << RESET;
     else                   cout << BLANCO << "   9." << RESET << "  Exportar reporte mensual (.txt)       ";
-    cout << CIAN << "║\n" << RESET;
+    cout << CIAN << "¦\n" << RESET;
 
     // OPCIÓN 10
-    cout << CIAN << "  ║ " << RESET;
+    cout << CIAN << "  ¦ " << RESET;
     if (seleccionada == 10) cout << BOLD << BLANCO << "> 10.  Reiniciar programa                    " << RESET;
     else                    cout << BLANCO << "  10." << RESET << "  Reiniciar programa                    ";
-    cout << CIAN << "║\n" << RESET;
+    cout << CIAN << "¦\n" << RESET;
 
     // OPCIÓN 0
-    cout << CIAN << "  ║ " << RESET;
+    cout << CIAN << "  ¦ " << RESET;
     if (seleccionada == 0) cout << BOLD << ROJO << " > 0.  Salir                                 " << RESET;
     else                   cout << ROJO << "   0." << RESET << "  Salir                                 ";
-    cout << CIAN << "║\n" << RESET;
+    cout << CIAN << "¦\n" << RESET;
 
-    cout << CIAN << "  ╚══════════════════════════════════════════════╝\n" << RESET;
-    cout << "  [Usa las flechas ▲/▼ para moverte y ENTER para seleccionar]\n";
+    cout << CIAN << "  +----------------------------------------------+\n" << RESET;
+    cout << "  [Usa las flechas ?/? para moverte y ENTER para seleccionar]\n";
 }
 
 void limpiarPantalla() {
@@ -307,19 +301,19 @@ void imprimirTitulo(const string& titulo) { // FUNCION: Funcion ULTRA practica q
     
     cout << CIAN << BOLD;
     
-    cout << "\n  ╔";
-    for (int i = 0; i < ancho; i++) cout << "═";
-    cout << "╗\n";
+    cout << "\n  +";
+    for (int i = 0; i < ancho; i++) cout << "-";
+    cout << "+\n";
     
     int espaciosIzq = (ancho - (int)titulo.size()) / 2;
     int espaciosDer = ancho - espaciosIzq - (int)titulo.size();
     
-    cout << "  ║" << string(espaciosIzq, ' ') << titulo
-         << string(espaciosDer, ' ') << "║\n";
+    cout << "  ¦" << string(espaciosIzq, ' ') << titulo
+         << string(espaciosDer, ' ') << "¦\n";
 
-    cout << "  ╚";
-    for (int i = 0; i < ancho; i++) cout << "═";
-    cout << "╝\n" << RESET;
+    cout << "  +";
+    for (int i = 0; i < ancho; i++) cout << "-";
+    cout << "+\n" << RESET;
 }
 
 
@@ -471,9 +465,9 @@ void verTodosLosGastos(const vector<Gasto>& gastos) {
     sort(ordenados.begin(), ordenados.end(), compararMontoDesc); // FUNCION: Clasifica los registros de mayor a menor monto en la tabla
 
     cout << CIAN;
-    cout << "  ┌────┬────────────────────────┬──────────────┬──────────────┬──────────┬────────────┬─────────┐\n";
-    cout << "  │ ID │ Descripcion            │ Categoria    │ Metodo Pago  │  Monto   │   Fecha    │Esencial │\n";
-    cout << "  ├────┼────────────────────────┼──────────────┼──────────────┼──────────┼────────────┼─────────┤\n";
+    cout << "  +---------------------------------------------------------------------------------------------+\n";
+    cout << "  ¦ ID ¦ Descripcion            ¦ Categoria    ¦ Metodo Pago  ¦  Monto   ¦   Fecha    ¦Esencial ¦\n";
+    cout << "  +----+------------------------+--------------+--------------+----------+------------+---------¦\n";
     cout << RESET;
 
     for (int i = 0; i < (int)ordenados.size(); i++) {
@@ -481,25 +475,25 @@ void verTodosLosGastos(const vector<Gasto>& gastos) {
         string esen = g.esencial ? "  SI  " : "  NO  ";
         string colorEsen = g.esencial ? VERDE : ROJO; // COMPARADOR: Asigna verde a lo esencial y rojo a lo opcional
 
-        cout << CIAN << "  │" << RESET;
+        cout << CIAN << "  ¦" << RESET;
         cout << setw(3) << g.id << " ";
-        cout << CIAN << "│" << RESET;
+        cout << CIAN << "¦" << RESET;
         cout << " " << left << setw(23) << g.descripcion.substr(0, 22); // UTILIDADES: Corta el texto si supera el ancho maximo de celda
-        cout << CIAN << "│" << RESET;
+        cout << CIAN << "¦" << RESET;
         cout << " " << left << setw(13) << g.categoria.substr(0, 12); // UTILIDADES: Asegura que la categoria encaje simetricamente
-        cout << CIAN << "│" << RESET;
+        cout << CIAN << "¦" << RESET;
         cout << " " << left << setw(13) << g.metodoPago.substr(0, 12); // UTILIDADES: Recorta el texto del metodo de pago si es muy largo
-        cout << CIAN << "│" << RESET;
+        cout << CIAN << "¦" << RESET;
         cout << right << setw(9) << fixed << setprecision(2) << g.monto << " "; // PRESENTACION: Formatea el decimal alineado a la derecha
-        cout << CIAN << "│" << RESET;
+        cout << CIAN << "¦" << RESET;
         cout << " " << g.fecha << " ";
-        cout << CIAN << "│" << RESET;
+        cout << CIAN << "¦" << RESET;
         cout << colorEsen << esen << RESET;
-        cout << CIAN << "   │\n" << RESET;
+        cout << CIAN << "   ¦\n" << RESET;
     }
 
     cout << CIAN;
-    cout << "  └────┴────────────────────────┴──────────────┴──────────────┴──────────┴────────────┴─────────┘\n";
+    cout << "  +---------------------------------------------------------------------------------------------+\n";
     cout << RESET;
 
     double total = 0;
@@ -533,28 +527,28 @@ void buscarPorCategoria(const vector<Gasto>& gastos) {
 
     cout << VERDE << "\n  Gastos en categoria: " << BOLD << catBuscar << RESET << "\n";
     cout << CIAN;
-    cout << "  ┌────┬────────────────────────┬──────────────┬──────────────┬────────────┐\n";
-    cout << "  │ ID │ Descripcion            │ Metodo Pago  │  Monto       │   Fecha    │\n";
-    cout << "  ├────┼────────────────────────┼──────────────┼──────────────┼────────────┤\n";
+    cout << "  +------------------------------------------------------------------------+\n";
+    cout << "  ¦ ID ¦ Descripcion            ¦ Metodo Pago  ¦  Monto       ¦   Fecha    ¦\n";
+    cout << "  +----+------------------------+--------------+--------------+------------¦\n";
     cout << RESET;
 
     double subtotal = 0;
     for (int i = 0; i < (int)resultado.size(); i++) {
         const Gasto& g = resultado[i];
         subtotal += g.monto; // FUNCION: Acumula el dinero gastado unicamente en esta categoria
-        cout << CIAN << "  │" << RESET;
+        cout << CIAN << "  ¦" << RESET;
         cout << setw(3) << g.id << " ";
-        cout << CIAN << "│" << RESET;
+        cout << CIAN << "¦" << RESET;
         cout << " " << left << setw(23) << g.descripcion.substr(0, 22); // UTILIDADES: Corta la descripcion para no deformar la celda
-        cout << CIAN << "│" << RESET;
+        cout << CIAN << "¦" << RESET;
         cout << " " << left << setw(13) << g.metodoPago.substr(0, 12);
-        cout << CIAN << "│" << RESET;
+        cout << CIAN << "¦" << RESET;
         cout << right << setw(13) << fixed << setprecision(2) << g.monto << " "; // PRESENTACION: Formatea los costos alineados a la derecha
-        cout << CIAN << "│" << RESET;
+        cout << CIAN << "¦" << RESET;
         cout << " " << g.fecha << " ";
-        cout << CIAN << "│\n" << RESET;
+        cout << CIAN << "¦\n" << RESET;
     }
-    cout << CIAN << "  └────┴────────────────────────┴──────────────┴──────────────┴────────────┘\n" << RESET;
+    cout << CIAN << "  +------------------------------------------------------------------------+\n" << RESET;
     cout << AMARILLO << "  Subtotal categoria '" << catBuscar << "': $" << fixed << setprecision(2) << subtotal << "\n" << RESET;
 
     pausar();
@@ -590,23 +584,23 @@ void buscarPorFecha(const vector<Gasto>& gastos) {
 
     cout << VERDE << "\n  Gastos del " << inicio << " al " << fin << ":\n" << RESET;
     cout << CIAN;
-    cout << "  ┌────┬────────────────────────┬──────────────┬──────────────┬────────────┐\n";
-    cout << "  │ ID │ Descripcion            │ Categoria    │  Monto       │   Fecha    │\n";
-    cout << "  ├────┼────────────────────────┼──────────────┼──────────────┼────────────┤\n";
+    cout << "  +------------------------------------------------------------------------+\n";
+    cout << "  ¦ ID ¦ Descripcion            ¦ Categoria    ¦  Monto       ¦   Fecha    ¦\n";
+    cout << "  +----+------------------------+--------------+--------------+------------¦\n";
     cout << RESET;
 
     double subtotal = 0;
     for (int i = 0; i < (int)resultado.size(); i++) {
         const Gasto& g = resultado[i];
         subtotal += g.monto;
-        cout << CIAN << "  │" << RESET << setw(3) << g.id << " ";
-        cout << CIAN << "│" << RESET << " " << left << setw(23) << g.descripcion.substr(0, 22);
-        cout << CIAN << "│" << RESET << " " << left << setw(13) << g.categoria.substr(0, 12);
-        cout << CIAN << "│" << RESET << right << setw(13) << fixed << setprecision(2) << g.monto << " ";
-        cout << CIAN << "│" << RESET << " " << g.fecha << " ";
-        cout << CIAN << "│\n" << RESET;
+        cout << CIAN << "  ¦" << RESET << setw(3) << g.id << " ";
+        cout << CIAN << "¦" << RESET << " " << left << setw(23) << g.descripcion.substr(0, 22);
+        cout << CIAN << "¦" << RESET << " " << left << setw(13) << g.categoria.substr(0, 12);
+        cout << CIAN << "¦" << RESET << right << setw(13) << fixed << setprecision(2) << g.monto << " ";
+        cout << CIAN << "¦" << RESET << " " << g.fecha << " ";
+        cout << CIAN << "¦\n" << RESET;
     }
-    cout << CIAN << "  └────┴────────────────────────┴──────────────┴──────────────┴────────────┘\n" << RESET;
+    cout << CIAN << "  +------------------------------------------------------------------------+\n" << RESET;
     cout << AMARILLO << "  Total del rango: $" << fixed << setprecision(2) << subtotal << "\n" << RESET;
 
     pausar();
@@ -722,4 +716,198 @@ void eliminarGasto(vector<Gasto>& gastos) {
     }
     cout << ROJO << "  No se encontro un gasto con ID #" << id << ".\n" << RESET;
     pausar();
+}
+
+
+//  GRAFICAS Y ESTADISTICAS
+
+
+void mostrarGraficoBarras(const string& etiqueta, double valor, double maximo, int anchoMax) {
+    int bloques = (maximo > 0) ? (int)((valor / maximo) * anchoMax) : 0; // FUNCION: Calcula cuantos bloques proporcionales le corresponden al valor
+    cout << "  " << left << setw(16) << etiqueta << " | ";
+    cout << VERDE;
+    for (int i = 0; i < bloques; i++)        cout << "|"; // PRESENTACION: Relleno proporcional con barra vertical
+    cout << RESET;
+    for (int i = bloques; i < anchoMax; i++) cout << "."; // PRESENTACION: Espacio vacio con punto
+    cout << " $" << fixed << setprecision(2) << valor << "\n";
+}
+
+void verEstadisticas(const vector<Gasto>& gastos) {
+    imprimirTitulo("ESTADISTICAS Y GRAFICOS");
+
+    if (gastos.empty()) {
+        cout << AMARILLO << "  No hay gastos para analizar.\n" << RESET;
+        pausar();
+        return;
+    }
+
+    // DEFINICION: Arreglos de nombres para categorias y metodos, identicos a los usados en registrarGasto
+    string categorias[] = {"Hogar","Comida","Transporte","Educacion","Salud","Ocio","Ahorro","Otra"};
+    string metodos[]    = {"Efectivo","Tarjeta","Transferencia","Otro"};
+
+    double totalGeneral  = 0;
+    double totalCat[8]   = {0}; // DEFINICION: Acumuladores por categoria, inicializados en cero
+    int    conteoMet[4]  = {0}; // DEFINICION: Contadores de uso por metodo de pago
+    double totalEsencial = 0, totalNoEsencial = 0;
+    int    cntEsencial   = 0,  cntNoEsencial  = 0;
+    double totalSem[6]   = {0}; // DEFINICION: Indice 1-5 para las semanas del mes
+
+    // FUNCION: Recorre todos los gastos acumulando cada indicador en su contenedor
+    for (int i = 0; i < (int)gastos.size(); i++) {
+        totalGeneral += gastos[i].monto;
+
+        for (int c = 0; c < 8; c++) // COMPARADOR: Identifica la categoria del gasto y acumula su monto
+            if (gastos[i].categoria == categorias[c]) { totalCat[c] += gastos[i].monto; break; }
+
+        for (int m = 0; m < 4; m++) // COMPARADOR: Identifica el metodo de pago y suma un uso
+            if (gastos[i].metodoPago == metodos[m]) { conteoMet[m]++; break; }
+
+        if (gastos[i].esencial) { totalEsencial    += gastos[i].monto; cntEsencial++;   }
+        else                    { totalNoEsencial  += gastos[i].monto; cntNoEsencial++; }
+
+        int sem = obtenerSemana(gastos[i].fecha); // FUNCION: Clasifica el gasto en su semana del mes
+        totalSem[sem] += gastos[i].monto;
+    }
+
+    // COMPARADOR: Busca la categoria con mayor gasto total
+    int catMayorIdx = 0;
+    for (int c = 1; c < 8; c++)
+        if (totalCat[c] > totalCat[catMayorIdx]) catMayorIdx = c;
+
+    // COMPARADOR: Busca el metodo de pago mas utilizado por cantidad de transacciones
+    int metMayorIdx = 0;
+    for (int m = 1; m < 4; m++)
+        if (conteoMet[m] > conteoMet[metMayorIdx]) metMayorIdx = m;
+
+    // COMPARADOR: Encuentra el valor maximo semanal para escalar las barras
+    double maxSem = 0;
+    for (int s = 1; s <= 5; s++)
+        if (totalSem[s] > maxSem) maxSem = totalSem[s];
+
+    double pctEsencial   = (totalGeneral > 0) ? (totalEsencial   / totalGeneral * 100.0) : 0;
+    double pctNoEsencial = (totalGeneral > 0) ? (totalNoEsencial / totalGeneral * 100.0) : 0;
+
+
+    // -- RESUMEN GENERAL -------------------------------------
+    cout << BOLD << AMARILLO << "\n  -- RESUMEN GENERAL ----------------------------------\n" << RESET;
+    cout << "  Total mensual         : " << VERDE << BOLD << "$" << fixed << setprecision(2) << totalGeneral   << RESET << "\n";
+    cout << "  Gasto promedio diario : " << VERDE << "$" << fixed << setprecision(2) << totalGeneral / 30.0   << RESET << "\n";
+    cout << "  Total de registros    : " << gastos.size() << "\n";
+
+
+    // -- % POR CATEGORIA -------------------------------------
+    cout << BOLD << AMARILLO << "\n  -- TOTAL POR CATEGORIA (% y grafico) ---------------\n" << RESET;
+    for (int c = 0; c < 8; c++) {
+        if (totalCat[c] <= 0) continue; // COMPARADOR: Omite categorias sin ningun gasto registrado
+        double pct     = totalCat[c] / totalGeneral * 100.0;
+        int    bloques = (int)(pct / 100.0 * 25); // FUNCION: Escala el porcentaje a un maximo de 25 bloques
+        cout << "  " << left << setw(13) << categorias[c] << " | ";
+        cout << MAGENTA;
+        for (int b = 0; b < bloques; b++)  cout << "|"; // PRESENTACION: Barra proporcional al porcentaje
+        cout << RESET;
+        for (int b = bloques; b < 25; b++) cout << ".";
+        cout << " " << fixed << setprecision(1) << pct << "% ($" << fixed << setprecision(2) << totalCat[c] << ")\n";
+    }
+    cout << MAGENTA << "  Categoria lider: " << BOLD << categorias[catMayorIdx]
+         << " ($" << fixed << setprecision(2) << totalCat[catMayorIdx] << ")\n" << RESET;
+
+
+    // -- METODO DE PAGO --------------------------------------
+    cout << BOLD << AMARILLO << "\n  -- METODO DE PAGO MAS UTILIZADO --------------------\n" << RESET;
+    for (int m = 0; m < 4; m++) {
+        if (conteoMet[m] <= 0) continue; // COMPARADOR: Omite metodos que no tienen ninguna transaccion
+        int bloques = (int)((double)conteoMet[m] / (double)conteoMet[metMayorIdx] * 20); // FUNCION: Escala relativa al metodo mas usado
+        cout << "  " << left << setw(13) << metodos[m] << " | ";
+        cout << AZUL;
+        for (int b = 0; b < bloques; b++)  cout << "|";
+        cout << RESET;
+        for (int b = bloques; b < 20; b++) cout << ".";
+        cout << " " << conteoMet[m] << " uso(s)\n";
+    }
+    cout << AZUL << "  Metodo predominante: " << BOLD << metodos[metMayorIdx] << "\n" << RESET;
+
+
+    // -- ESENCIALES vs NO ESENCIALES -------------------------
+    cout << BOLD << AMARILLO << "\n  -- ESENCIALES vs NO ESENCIALES ---------------------\n" << RESET;
+    cout << "  Esenciales    : " << cntEsencial   << " gastos | $" << fixed << setprecision(2) << totalEsencial
+         << " (" << fixed << setprecision(1) << pctEsencial   << "%)\n";
+    cout << "  No Esenciales : " << cntNoEsencial << " gastos | $" << fixed << setprecision(2) << totalNoEsencial
+         << " (" << fixed << setprecision(1) << pctNoEsencial << "%)\n";
+
+    // PRESENTACION: Barra bicolor, verde para esencial y rojo para no esencial, sobre 30 bloques totales
+    int blqEsen = (int)(pctEsencial / 100.0 * 30);
+    cout << "  Distribucion  : |";
+    cout << VERDE; for (int b = 0; b < blqEsen; b++)  cout << "|";
+    cout << ROJO;  for (int b = blqEsen; b < 30; b++) cout << "|";
+    cout << RESET << "|\n";
+    cout << "                  Verde=Esencial  Rojo=No esencial\n";
+
+
+    // -- GASTO POR SEMANA ------------------------------------
+    cout << BOLD << AMARILLO << "\n  -- GASTO POR SEMANA DEL MES ------------------------\n" << RESET;
+    for (int s = 1; s <= 5; s++) {
+        if (totalSem[s] <= 0) continue; // COMPARADOR: Omite semanas sin gastos registrados
+        string etiq = "Semana " + intToString(s); // UTILIDADES: Reutiliza intToString para generar etiquetas dinamicas de cada semana
+        mostrarGraficoBarras(etiq, totalSem[s], maxSem, 25); // FUNCION: Delega el dibujo a la funcion de barras
+    }
+
+    pausar();
+}
+
+void verGastoMasAlto(const vector<Gasto>& gastos) {
+    imprimirTitulo("GASTO MAS ALTO DEL MES");
+
+    if (gastos.empty()) {
+        cout << AMARILLO << "  No hay gastos registrados.\n" << RESET;
+        pausar();
+        return;
+    }
+
+    // COMPARADOR: Recorre el vector guardando el indice del mayor monto encontrado
+    int idxMax = 0;
+    for (int i = 1; i < (int)gastos.size(); i++)
+        if (gastos[i].monto > gastos[idxMax].monto) idxMax = i;
+
+    const Gasto& g = gastos[idxMax];
+
+    double total = 0;
+    for (int i = 0; i < (int)gastos.size(); i++) total += gastos[i].monto; // FUNCION: Suma total para calcular el porcentaje representado
+    double pct = (total > 0) ? (g.monto / total * 100.0) : 0;
+    int bloques = (int)(pct / 100.0 * 30); // FUNCION: Escala el porcentaje a 30 bloques para la barra
+
+    cout << AMARILLO << BOLD << "\n  +-- DETALLE DEL GASTO MAS ALTO --------------+\n" << RESET;
+    cout << CIAN << "  ¦" << RESET << "  ID          : " << BOLD << g.id          << RESET << "\n";
+    cout << CIAN << "  ¦" << RESET << "  Descripcion : " << BOLD << g.descripcion << RESET << "\n";
+    cout << CIAN << "  ¦" << RESET << "  Categoria   : " << g.categoria   << "\n";
+    cout << CIAN << "  ¦" << RESET << "  Metodo Pago : " << g.metodoPago  << "\n";
+    cout << CIAN << "  ¦" << RESET << "  Monto       : " << VERDE << BOLD << "$" << fixed << setprecision(2) << g.monto << RESET << "\n";
+    cout << CIAN << "  ¦" << RESET << "  Fecha       : " << g.fecha       << "\n";
+    cout << CIAN << "  ¦" << RESET << "  Esencial    : " << (g.esencial ? VERDE : ROJO)
+                                                         << (g.esencial ? "SI" : "NO") << RESET << "\n";
+    cout << AMARILLO << BOLD << "  +--------------------------------------------+\n" << RESET;
+
+    // PRESENTACION: Barra que muestra visualmente que fraccion del total representa este gasto
+    cout << "\n  Representa el " << fixed << setprecision(1) << pct << "% del total mensual:\n";
+    cout << "  |";
+    cout << VERDE; for (int b = 0; b < bloques; b++)  cout << "|";
+    cout << RESET; for (int b = bloques; b < 30; b++) cout << ".";
+    cout << "| $" << fixed << setprecision(2) << total << " total\n";
+
+    pausar();
+}
+
+
+//  FUNCIONES DE ARCHIVO (pendientes)
+
+
+void guardarGastos(const vector<Gasto>& gastos) {
+    //FUNCION: Persistencia fisica de datos en disco (Se habilitara al definirla)
+}
+
+void cargarGastos(vector<Gasto>& gastos) {
+    //FUNCION: Persistencia fisica de datos en disco (Se habilitara al definirla)
+}
+
+void exportarReporte(const vector<Gasto>& gastos) {
+    //FUNCION: Persistencia fisica de datos en disco (Se habilitara al definirla)
 }
