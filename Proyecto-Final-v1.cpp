@@ -1017,7 +1017,7 @@ void exportarReporte(const vector<Gasto>& gastos) {
     rep << "--- LISTADO COMPLETO DE GASTOS (ordenado por monto) ---\n";
     rep << left << setw(4) << "ID" << " | " << setw(24) << "Descripcion"
         << " | " << setw(13) << "Categoria" << " | " << setw(13) << "Metodo"
-        << " | " << right << setw(9) << "Monto" << " | Fecha       | Esencial\n";
+        << " | " << right << setw(12) << "Monto" << "  | Fecha      | Esencial\n";
     rep << string(95, '-') << "\n";
 
     vector<Gasto> ordenados = gastos;
@@ -1027,7 +1027,7 @@ void exportarReporte(const vector<Gasto>& gastos) {
         rep << left  << setw(4) << g.id << " | " << setw(24) << g.descripcion.substr(0, 23)
             << " | " << setw(13) << g.categoria.substr(0, 12)
             << " | " << setw(13) << g.metodoPago.substr(0, 12)
-            << " | $" << right << setw(8) << fixed << setprecision(2) << g.monto
+            << " | $" << right << setw(12) << fixed << setprecision(2) << g.monto
             << " | " << g.fecha
             << " | " << (g.esencial ? "SI" : "NO") << "\n";
     }
