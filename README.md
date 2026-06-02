@@ -114,6 +114,27 @@ Navega con las flechas `▲ / ▼` y confirma con `ENTER`.
 
 ---
 
+## 📤 Exportar reporte mensual (Opción 9)
+
+Genera el archivo `reporte_mensual.txt` en la misma carpeta del ejecutable. Incluye:
+
+- Resumen general (total mensual y promedio diario)
+- Gasto más alto del mes
+- Gráfico ASCII de gastos por categoría
+- Método de pago más utilizado
+- Desglose esencial / no esencial
+- Tabla completa de todos los gastos ordenados por monto
+
+El archivo puede abrirse con cualquier editor de texto y compartirse fácilmente.
+
+---
+
+## 🔄 Reiniciar programa (Opción 10)
+
+Recarga los datos desde `Gastos.txt` sin eliminar ningún registro. Útil cuando otro usuario ha agregado datos desde la misma carpeta. Limpia la pantalla y regresa al menú principal.
+
+---
+
 ## ✅ Validaciones
 
 | Campo | Regla |
