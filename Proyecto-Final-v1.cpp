@@ -473,16 +473,16 @@ void verTodosLosGastos(const vector<Gasto>& gastos) {
         cout << CIAN << "│" << RESET;
         cout << " " << left << setw(13) << g.metodoPago.substr(0, 12); // UTILIDADES: Recorta el texto del metodo de pago si es muy largo
         cout << CIAN << "│" << RESET;
-        cout << right << setw(9) << fixed << setprecision(2) << g.monto << " "; // PRESENTACION: Formatea el decimal alineado a la derecha
+        cout << right << setw(12) << fixed << setprecision(2) << g.monto << " "; // PRESENTACION: Formatea el decimal alineado a la derecha
         cout << CIAN << "│" << RESET;
-        cout << " " << g.fecha << " ";
+        cout << " " << g.fecha << "  ";
         cout << CIAN << "│" << RESET;
         cout << colorEsen << esen << RESET;
         cout << CIAN << "   │\n" << RESET;
     }
 
     cout << CIAN;
-    cout << "  └────┴────────────────────────┴──────────────┴──────────────┴──────────┴────────────┴─────────┘\n";
+    cout << "  └────┴────────────────────────┴──────────────┴──────────────┴─────────────┴─────────────┴─────────┘\n";
     cout << RESET;
 
     double total = 0;
